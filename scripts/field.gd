@@ -7,7 +7,9 @@ extends Node2D
 @export var size: Vector2i:
 	set(in_size):
 		size = in_size
-		if !Engine.is_editor_hint(): return
+		
+		if field_cell_prefab == null : return
+		
 		generate_field()
 	
 @export var field_cell_prefab: PackedScene

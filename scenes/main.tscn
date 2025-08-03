@@ -1,7 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceh3811hdo2uq"]
+[gd_scene load_steps=18 format=3 uid="uid://ceh3811hdo2uq"]
 
 [ext_resource type="Script" uid="uid://dgbtn6fmblkto" path="res://scripts/gameplay.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dir52arv03oai" path="res://scenes/truck.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cnkuan5icj57n" path="res://scenes/prefabs/figures/armchair.tscn" id="4_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://dshuf0b8fvxkx" path="res://scenes/prefabs/figures/bed.tscn" id="5_muem4"]
+[ext_resource type="PackedScene" uid="uid://dd1w3e8tr7vf3" path="res://scenes/prefabs/figures/bedside_table.tscn" id="6_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://dru5o6himvg30" path="res://scenes/prefabs/figures/box.tscn" id="7_0ld40"]
+[ext_resource type="PackedScene" uid="uid://dwwuvb5o8048j" path="res://scenes/prefabs/figures/clock.tscn" id="8_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://15axjghqkh7c" path="res://scenes/prefabs/figures/divan.tscn" id="9_yc10j"]
+[ext_resource type="PackedScene" uid="uid://oy6qbba5ukxr" path="res://scenes/prefabs/figures/duck.tscn" id="10_jscy8"]
+[ext_resource type="PackedScene" uid="uid://b5ehgwrgs30xo" path="res://scenes/prefabs/figures/lamp.tscn" id="11_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://d3ojbud1uml7p" path="res://scenes/prefabs/figures/plane.tscn" id="12_y6deb"]
+[ext_resource type="PackedScene" uid="uid://p66kuk1wv63g" path="res://scenes/prefabs/figures/shelf_for_tv.tscn" id="13_og1vs"]
+[ext_resource type="PackedScene" uid="uid://c3yyenjtmxjvi" path="res://scenes/prefabs/figures/table.tscn" id="14_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://dcyfevttu8bqn" path="res://scenes/prefabs/figures/wardrobe.tscn" id="15_vxglm"]
+[ext_resource type="PackedScene" uid="uid://dtv76dnlal66w" path="res://scenes/prefabs/figures/watuerout.tscn" id="16_2f3dj"]
 
 [sub_resource type="Resource" id="Resource_sugp2"]
 script = ExtResource("2_0wfyh")
@@ -11,6 +25,35 @@ metadata/_custom_type_script = "uid://c65vyajnksfg8"
 
 [node name="Main" type="Node2D"]
 
-[node name="Gameplay" type="Node2D" parent="."]
+[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node")]
 script = ExtResource("1_o5qli")
-levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2"), null])
+levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2")])
+truck_prefab = ExtResource("3_sugp2")
+level_title = NodePath("Label")
+truck = NodePath("Truck")
+figure_prefabs = Array[PackedScene]([ExtResource("4_jbj1t"), ExtResource("5_muem4"), ExtResource("6_dp3eg"), ExtResource("7_0ld40"), ExtResource("8_gqmmt"), ExtResource("9_yc10j"), ExtResource("10_jscy8"), ExtResource("11_pm3ni"), ExtResource("12_y6deb"), ExtResource("13_og1vs"), ExtResource("14_2wyq8"), ExtResource("15_vxglm"), ExtResource("16_2f3dj")])
+figures = {
+0: [],
+1: [],
+2: []
+}
+palletes = [NodePath("Pallete1"), NodePath("Pallete2"), NodePath("Pallete3")]
+figures_node = NodePath("Figures")
+
+[node name="Label" type="Label" parent="Gameplay"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Pallete1" type="Node2D" parent="Gameplay"]
+position = Vector2(179, 87)
+
+[node name="Pallete2" type="Node2D" parent="Gameplay"]
+position = Vector2(179, 295)
+
+[node name="Pallete3" type="Node2D" parent="Gameplay"]
+position = Vector2(179, 505)
+
+[node name="Truck" parent="Gameplay" instance=ExtResource("3_sugp2")]
+position = Vector2(973, 576)
+
+[node name="Figures" type="Node2D" parent="Gameplay"]

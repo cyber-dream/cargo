@@ -10,15 +10,13 @@ extends Node2D
 	get(): return size
 	set(in_size):
 		size = in_size
-		if !Engine.is_editor_hint(): return
 		
+		if field == null:
+			return
+		
+		field.size = size
+		field.generate_field()
 		_resize_truck()
-
-func _ready() -> void:
-	field.size = size
-	field.generate_field()
-	_resize_truck()
-	
 
 func _resize_truck(): 
 	back.position.x = -field.tile_size * field.size.x

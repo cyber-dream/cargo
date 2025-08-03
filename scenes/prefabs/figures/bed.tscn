@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dshuf0b8fvxkx"]
+[gd_scene load_steps=3 format=3 uid="uid://dshuf0b8fvxkx"]
 
 [ext_resource type="Script" uid="uid://co27a7t3rh53w" path="res://scripts/figure.gd" id="1_2ftjd"]
-[ext_resource type="Texture2D" uid="uid://g1iqnx6w45xs" path="res://sprites/figures/bed.png" id="2_2ftjd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uggre"]
 size = Vector2(32, 32)
@@ -11,7 +10,6 @@ script = ExtResource("1_2ftjd")
 area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2ftjd")
 offset = Vector2(16, 14)
 
 [node name="Area2D" type="Area2D" parent="."]
