@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c06hlq62x51fn"]
+
+[ext_resource type="Texture2D" uid="uid://cp2an7yf5e7ox" path="res://sprites/truck/Tile.png" id="1_av40w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pv17"]
+size = Vector2(16, 16)
+
+[node name="FieldCell" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_av40w")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2pv17")

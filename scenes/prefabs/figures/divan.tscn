@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://15axjghqkh7c"]
+
+[ext_resource type="Script" uid="uid://co27a7t3rh53w" path="res://scripts/figure.gd" id="1_3mkke"]
+[ext_resource type="Texture2D" uid="uid://bpwi18dwmqgrx" path="res://sprites/figures/Divan.png" id="2_3mkke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uggre"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("area_2d")]
+script = ExtResource("1_3mkke")
+area_2d = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3mkke")
+offset = Vector2(16, 14)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_uggre")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, -2)
+shape = SubResource("RectangleShape2D_uggre")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 30)
+shape = SubResource("RectangleShape2D_uggre")
