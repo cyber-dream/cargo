@@ -6,6 +6,8 @@ var _dragging_area_2d: Area2D
 var _init_pointer_offset: Vector2
 var _init_pos: Vector2
 
+signal figure_dropped(pallete_idx: int)
+
 func register_dnd_object(in_node: Node2D, in_area_2d: Area2D):
 	in_area_2d.input_event.connect(func(viewport: Node, event: InputEvent, shape_idx: int): 
 		if event is InputEventMouseButton: 
@@ -51,6 +53,8 @@ func _input(event: InputEvent) -> void:
 					nearest_idx = overlap_idx
 			
 			_dragging_node.position += nearest_delta_pos
+			
+			figure_dropped.emit(_dragging_node.get_meta("pallete_idx"))
 		
 		_dragging_node = null
 		
