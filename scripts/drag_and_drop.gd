@@ -5,8 +5,12 @@ var _dragging_node: Node2D
 var _dragging_area_2d: Area2D
 var _init_pointer_offset: Vector2
 var _init_pos: Vector2
+var _field: CargoField
+signal figure_dropped(pallete_idx: int, points: int)
+signal game_end()
 
-signal figure_dropped(pallete_idx: int)
+func register_field(in_field: CargoField):
+	_field = in_field
 
 func register_dnd_object(in_node: Node2D, in_area_2d: Area2D):
 	in_area_2d.input_event.connect(func(viewport: Node, event: InputEvent, shape_idx: int): 
@@ -37,8 +41,11 @@ func _input(event: InputEvent) -> void:
 		if !event.is_released(): return
 		
 		var overlaps = _dragging_area_2d.get_overlapping_areas()
+		
+
 		if overlaps.size() != _dragging_area_2d.get_child_count():
 			_dragging_node.position = _init_pos
+			
 		else:
 			var first_shape = _dragging_area_2d.get_child(0) as CollisionShape2D
 
@@ -54,7 +61,7 @@ func _input(event: InputEvent) -> void:
 			
 			_dragging_node.position += nearest_delta_pos
 			
-			figure_dropped.emit(_dragging_node.get_meta("pallete_idx"))
+			figure_dropped.emit(_dragging_node.get_meta("pallete_idx"), _dragging_area_2d.get_child_count())
 		
 		_dragging_node = null
 		

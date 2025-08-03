@@ -14,3 +14,4 @@ var _init_pos: Vector2
 
 func _ready() -> void:
 	CargoDnD.register_dnd_object(self, area_2d)
+	area_2d.set_meta("is_figure", true)

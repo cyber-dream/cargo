@@ -16,6 +16,7 @@ extends Node2D
 		
 		field.size = size
 		field.generate_field()
+		CargoDnD.register_field(field)
 		_resize_truck()
 
 func _resize_truck(): 

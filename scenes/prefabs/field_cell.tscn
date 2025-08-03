@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c06hlq62x51fn"]
+[gd_scene load_steps=4 format=3 uid="uid://c06hlq62x51fn"]
 
 [ext_resource type="Texture2D" uid="uid://cp2an7yf5e7ox" path="res://sprites/truck/Tile.png" id="1_av40w"]
+[ext_resource type="Script" uid="uid://dnr6w6nv7rxyj" path="res://scripts/field_cell.gd" id="1_oqsrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pv17"]
 size = Vector2(16, 16)
 
-[node name="FieldCell" type="Node2D"]
+[node name="FieldCell" type="Node2D" node_paths=PackedStringArray("area_2d")]
+script = ExtResource("1_oqsrd")
+area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_av40w")

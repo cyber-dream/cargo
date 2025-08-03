@@ -13,21 +13,21 @@ area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xavib")
+offset = Vector2(0, 16)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-32, -16)
+position = Vector2(-32, 0)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 16)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(32, -16)
+position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_uggre")

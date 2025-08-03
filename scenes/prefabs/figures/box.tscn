@@ -13,26 +13,25 @@ area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rwcc8")
-offset = Vector2(16, 14)
+offset = Vector2(0, 64)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, -50)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, -18)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, 14)
+position = Vector2(0, 64)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, 46)
+position = Vector2(0, 96)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, 78)
+position = Vector2(0, 128)
 shape = SubResource("RectangleShape2D_uggre")

@@ -27,3 +27,10 @@ func generate_field():
 			cell.position = Vector2i(idx * -tile_size - (gap*idx), idy * -tile_size - (gap*idy))
 			
 			self.add_child(cell)
+
+func get_tiles() -> Array[Area2D]:
+	var arr: Array[Area2D]
+	for c in self.get_children():
+		arr.push_back((c as CargoCell).area_2d)
+	
+	return arr

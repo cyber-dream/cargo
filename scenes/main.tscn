@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ceh3811hdo2uq"]
+[gd_scene load_steps=29 format=3 uid="uid://ceh3811hdo2uq"]
 
 [ext_resource type="Script" uid="uid://dgbtn6fmblkto" path="res://scripts/gameplay.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="2_0wfyh"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dcyfevttu8bqn" path="res://scenes/prefabs/figures/wardrobe.tscn" id="15_vxglm"]
 [ext_resource type="PackedScene" uid="uid://dtv76dnlal66w" path="res://scenes/prefabs/figures/watuerout.tscn" id="16_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://byexl5n15mrkb" path="res://scenes/prefabs/figures/phone.tscn" id="16_2wyq8"]
+[ext_resource type="Texture2D" uid="uid://4htihwlt1cij" path="res://sprites/Backround.png" id="22_jscy8"]
+[ext_resource type="Texture2D" uid="uid://cioiknl8jn1cw" path="res://sprites/Name.png" id="23_pm3ni"]
 
 [sub_resource type="Resource" id="Resource_sugp2"]
 script = ExtResource("2_0wfyh")
@@ -43,19 +45,25 @@ metadata/_custom_type_script = "uid://c65vyajnksfg8"
 [sub_resource type="LabelSettings" id="LabelSettings_yc10j"]
 font_size = 24
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc10j"]
-size = Vector2(661, 548)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jscy8"]
-size = Vector2(483, 650)
+[sub_resource type="LabelSettings" id="LabelSettings_pm3ni"]
+font_size = 72
 
 [node name="Main" type="Node2D"]
 
-[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "pallete_counter", "cargo_counter")]
+[node name="Backround" type="Sprite2D" parent="."]
+position = Vector2(581.5, 321.5)
+scale = Vector2(1.83594, 1.85833)
+texture = ExtResource("22_jscy8")
+
+[node name="Name" type="Sprite2D" parent="."]
+position = Vector2(585, 315)
+texture = ExtResource("23_pm3ni")
+
+[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "panel_game_end", "points_label")]
 script = ExtResource("1_o5qli")
 levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2"), SubResource("Resource_yc10j"), SubResource("Resource_jscy8")])
 truck_prefab = ExtResource("3_sugp2")
-level_title = NodePath("Label")
+level_title = NodePath("Label level")
 truck = NodePath("Truck")
 figure_prefabs = Array[PackedScene]([ExtResource("4_jbj1t"), ExtResource("5_muem4"), ExtResource("6_dp3eg"), ExtResource("7_0ld40"), ExtResource("8_gqmmt"), ExtResource("9_jscy8"), ExtResource("9_yc10j"), ExtResource("10_jscy8"), ExtResource("12_pm3ni"), ExtResource("13_y6deb"), ExtResource("14_og1vs"), ExtResource("11_pm3ni"), ExtResource("16_2wyq8"), ExtResource("12_y6deb"), ExtResource("13_og1vs"), ExtResource("14_2wyq8"), ExtResource("15_vxglm"), ExtResource("16_2f3dj")])
 figures = {
@@ -65,10 +73,20 @@ figures = {
 }
 palletes = [NodePath("Pallete1"), NodePath("Pallete2"), NodePath("Pallete3")]
 figures_node = NodePath("Figures")
-pallete_counter = NodePath("PalleteCounterArea")
-cargo_counter = NodePath("CargoCounterArea")
+panel_game_end = NodePath("../Panel")
+points_label = NodePath("Label points")
 
-[node name="Label" type="Label" parent="Gameplay"]
+[node name="Label level" type="Label" parent="Gameplay"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1.0
+offset_right = 230.0
+offset_bottom = 60.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_yc10j")
+
+[node name="Label points" type="Label" parent="Gameplay"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -92,14 +110,27 @@ position = Vector2(1024.91, 576)
 
 [node name="Figures" type="Node2D" parent="Gameplay"]
 
-[node name="PalleteCounterArea" type="Area2D" parent="Gameplay"]
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -30.0
+offset_top = -17.0
+offset_right = 1198.0
+offset_bottom = 649.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/PalleteCounterArea"]
-position = Vector2(824.5, 378)
-shape = SubResource("RectangleShape2D_yc10j")
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 268.0
+offset_right = 800.0
+offset_bottom = 452.0
+text = "Game End"
+label_settings = SubResource("LabelSettings_pm3ni")
 
-[node name="CargoCounterArea" type="Area2D" parent="Gameplay"]
+[node name="Button" type="Button" parent="."]
+offset_left = 1011.0
+offset_top = -4.0
+offset_right = 1159.0
+offset_bottom = 47.0
+text = "Next level"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Gameplay/CargoCounterArea"]
-position = Vector2(240.5, 323)
-shape = SubResource("RectangleShape2D_jscy8")
+[connection signal="pressed" from="Button" to="Gameplay" method="_on_next_level_button_pressed"]
