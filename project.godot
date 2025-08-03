@@ -15,6 +15,10 @@ run/main_scene="uid://ceh3811hdo2uq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CargoDnD="*res://scripts/drag_and_drop.gd"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
