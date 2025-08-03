@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 CargoDnD="*res://scripts/drag_and_drop.gd"
 
+[dotnet]
+
+project/assembly_name="cargo_loader"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
