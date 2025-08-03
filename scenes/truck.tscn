@@ -22,6 +22,7 @@ field = NodePath("Field")
 back = NodePath("Back")
 frame = NodePath("TruckTile")
 background = NodePath("Background")
+size = Vector2i(6, 4)
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-33, -80)

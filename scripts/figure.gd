@@ -1,6 +1,8 @@
 class_name CargoFigure
 extends Node2D
 
+
+@export var difficulty: Gameplay.Difficulty
 @export var area_2d: Area2D
 
 ## Private
