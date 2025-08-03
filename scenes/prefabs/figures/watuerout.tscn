@@ -8,6 +8,7 @@ size = Vector2(32, 32)
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("area_2d")]
 script = ExtResource("1_hfr62")
+difficulty = 2
 area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

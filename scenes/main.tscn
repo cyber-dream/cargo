@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceh3811hdo2uq"]
+[gd_scene load_steps=28 format=3 uid="uid://ceh3811hdo2uq"]
 
 [ext_resource type="Script" uid="uid://dgbtn6fmblkto" path="res://scripts/gameplay.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="2_0wfyh"]
@@ -8,14 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://dd1w3e8tr7vf3" path="res://scenes/prefabs/figures/bedside_table.tscn" id="6_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dru5o6himvg30" path="res://scenes/prefabs/figures/box.tscn" id="7_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dwwuvb5o8048j" path="res://scenes/prefabs/figures/clock.tscn" id="8_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://dbn2v4gw3vfu2" path="res://scenes/prefabs/figures/curtain.tscn" id="9_jscy8"]
 [ext_resource type="PackedScene" uid="uid://15axjghqkh7c" path="res://scenes/prefabs/figures/divan.tscn" id="9_yc10j"]
 [ext_resource type="PackedScene" uid="uid://oy6qbba5ukxr" path="res://scenes/prefabs/figures/duck.tscn" id="10_jscy8"]
 [ext_resource type="PackedScene" uid="uid://b5ehgwrgs30xo" path="res://scenes/prefabs/figures/lamp.tscn" id="11_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://bt3qc1r06o2b7" path="res://scenes/prefabs/figures/fen.tscn" id="12_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://d3ojbud1uml7p" path="res://scenes/prefabs/figures/plane.tscn" id="12_y6deb"]
 [ext_resource type="PackedScene" uid="uid://p66kuk1wv63g" path="res://scenes/prefabs/figures/shelf_for_tv.tscn" id="13_og1vs"]
+[ext_resource type="PackedScene" uid="uid://clgcy1ddqc6ra" path="res://scenes/prefabs/figures/gan.tscn" id="13_y6deb"]
 [ext_resource type="PackedScene" uid="uid://c3yyenjtmxjvi" path="res://scenes/prefabs/figures/table.tscn" id="14_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://cuvl18cl1rkqd" path="res://scenes/prefabs/figures/jiraf.tscn" id="14_og1vs"]
 [ext_resource type="PackedScene" uid="uid://dcyfevttu8bqn" path="res://scenes/prefabs/figures/wardrobe.tscn" id="15_vxglm"]
 [ext_resource type="PackedScene" uid="uid://dtv76dnlal66w" path="res://scenes/prefabs/figures/watuerout.tscn" id="16_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://byexl5n15mrkb" path="res://scenes/prefabs/figures/phone.tscn" id="16_2wyq8"]
 
 [sub_resource type="Resource" id="Resource_sugp2"]
 script = ExtResource("2_0wfyh")
@@ -23,15 +28,36 @@ max_difficulty = 0
 truck_size = Vector2i(5, 5)
 metadata/_custom_type_script = "uid://c65vyajnksfg8"
 
+[sub_resource type="Resource" id="Resource_yc10j"]
+script = ExtResource("2_0wfyh")
+max_difficulty = 1
+truck_size = Vector2i(5, 10)
+metadata/_custom_type_script = "uid://c65vyajnksfg8"
+
+[sub_resource type="Resource" id="Resource_jscy8"]
+script = ExtResource("2_0wfyh")
+max_difficulty = 2
+truck_size = Vector2i(15, 8)
+metadata/_custom_type_script = "uid://c65vyajnksfg8"
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc10j"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc10j"]
+size = Vector2(661, 548)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jscy8"]
+size = Vector2(483, 650)
+
 [node name="Main" type="Node2D"]
 
-[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node")]
+[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "pallete_counter", "cargo_counter")]
 script = ExtResource("1_o5qli")
-levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2")])
+levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2"), SubResource("Resource_yc10j"), SubResource("Resource_jscy8")])
 truck_prefab = ExtResource("3_sugp2")
 level_title = NodePath("Label")
 truck = NodePath("Truck")
-figure_prefabs = Array[PackedScene]([ExtResource("4_jbj1t"), ExtResource("5_muem4"), ExtResource("6_dp3eg"), ExtResource("7_0ld40"), ExtResource("8_gqmmt"), ExtResource("9_yc10j"), ExtResource("10_jscy8"), ExtResource("11_pm3ni"), ExtResource("12_y6deb"), ExtResource("13_og1vs"), ExtResource("14_2wyq8"), ExtResource("15_vxglm"), ExtResource("16_2f3dj")])
+figure_prefabs = Array[PackedScene]([ExtResource("4_jbj1t"), ExtResource("5_muem4"), ExtResource("6_dp3eg"), ExtResource("7_0ld40"), ExtResource("8_gqmmt"), ExtResource("9_jscy8"), ExtResource("9_yc10j"), ExtResource("10_jscy8"), ExtResource("12_pm3ni"), ExtResource("13_y6deb"), ExtResource("14_og1vs"), ExtResource("11_pm3ni"), ExtResource("16_2wyq8"), ExtResource("12_y6deb"), ExtResource("13_og1vs"), ExtResource("14_2wyq8"), ExtResource("15_vxglm"), ExtResource("16_2f3dj")])
 figures = {
 0: [],
 1: [],
@@ -39,10 +65,18 @@ figures = {
 }
 palletes = [NodePath("Pallete1"), NodePath("Pallete2"), NodePath("Pallete3")]
 figures_node = NodePath("Figures")
+pallete_counter = NodePath("PalleteCounterArea")
+cargo_counter = NodePath("CargoCounterArea")
 
 [node name="Label" type="Label" parent="Gameplay"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 724.0
+offset_right = 953.0
+offset_bottom = 60.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_yc10j")
 
 [node name="Pallete1" type="Node2D" parent="Gameplay"]
 position = Vector2(179, 87)
@@ -54,6 +88,18 @@ position = Vector2(179, 295)
 position = Vector2(179, 505)
 
 [node name="Truck" parent="Gameplay" instance=ExtResource("3_sugp2")]
-position = Vector2(973, 576)
+position = Vector2(1024.91, 576)
 
 [node name="Figures" type="Node2D" parent="Gameplay"]
+
+[node name="PalleteCounterArea" type="Area2D" parent="Gameplay"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/PalleteCounterArea"]
+position = Vector2(824.5, 378)
+shape = SubResource("RectangleShape2D_yc10j")
+
+[node name="CargoCounterArea" type="Area2D" parent="Gameplay"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Gameplay/CargoCounterArea"]
+position = Vector2(240.5, 323)
+shape = SubResource("RectangleShape2D_jscy8")

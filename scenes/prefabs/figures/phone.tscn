@@ -1,35 +1,37 @@
 [gd_scene load_steps=4 format=3 uid="uid://byexl5n15mrkb"]
 
 [ext_resource type="Script" uid="uid://co27a7t3rh53w" path="res://scripts/figure.gd" id="1_uheks"]
-[ext_resource type="Texture2D" uid="uid://hx6iiqk7e40w" path="res://sprites/figures/watuerout.png" id="2_o4viq"]
+[ext_resource type="Texture2D" uid="uid://c50c3s8dye0cg" path="res://sprites/figures/phone.png" id="2_uheks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uggre"]
 size = Vector2(32, 32)
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("area_2d")]
 script = ExtResource("1_uheks")
+difficulty = 2
 area_2d = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_o4viq")
+texture = ExtResource("2_uheks")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-32, -32)
+position = Vector2(-49, -16)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(32, -32)
+position = Vector2(47, -16)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -32)
+position = Vector2(15, -16)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-17, -16)
 shape = SubResource("RectangleShape2D_uggre")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 32)
+position = Vector2(-49, 16)
 shape = SubResource("RectangleShape2D_uggre")

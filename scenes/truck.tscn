@@ -47,4 +47,5 @@ offset = Vector2(-16, -96)
 [node name="Field" type="Node2D" parent="."]
 position = Vector2(-51, -98)
 script = ExtResource("6_1n0o7")
+size = Vector2i(5, 5)
 field_cell_prefab = ExtResource("7_m2ugu")
