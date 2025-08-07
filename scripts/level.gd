@@ -1,4 +1,4 @@
-class_name Level
+class_name CargoLevel
 extends Resource
 
 @export var max_difficulty: Gameplay.Difficulty
