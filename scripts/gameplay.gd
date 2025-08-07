@@ -7,7 +7,7 @@ enum Difficulty {
 	HARD= 2
 }
 
-@export var levels: Array[Level]
+@export var levels_path: String
 @export var truck_prefab: PackedScene
 @export var level_title: Label
 @export var truck: CargoTruck
@@ -34,36 +34,37 @@ func _enter_tree() -> void:
 		arr.push_back(f)
 		kek.queue_free()
 	
-	_load_level(0)
+	#_load_level(0) FIXME
 	CargoDnD.figure_dropped.connect(_on_figure_dropped)
 	CargoDnD.game_end.connect(_on_game_end)
 	
 func _on_game_end():
-	if levels.size() <= _cur_level+1:
-		panel_game_end.show()
-	else:
-		_cur_level += 1
-		_load_level(_cur_level)
+	pass
+	#if levels.size() <= _cur_level+1: FIXME
+		#panel_game_end.show()
+	#else:
+		#_cur_level += 1
+		#_load_level(_cur_level)
 		
 
 func _on_figure_dropped(in_pallete_idx:int, in_points: int):
-	_spawn_figure(in_pallete_idx, levels[_cur_level].max_difficulty)
+	#_spawn_figure(in_pallete_idx, levels[_cur_level].max_difficulty)
 	_points += in_points
 
 
-func _load_level(in_idx: int):
-	_points = 0
-	
-	var level = levels[in_idx]
-	level_title.text = "Level " + str(in_idx)
-	
-	truck.size = level.truck_size
-	
-	for c in figures_node.get_children():
-		c.queue_free()
-	
-	for p_idx in palletes.size():
-		_spawn_figure(p_idx, level.max_difficulty)
+#func _load_level(in_idx: int):
+	#_points = 0
+	#
+	#var level = levels[in_idx]
+	#level_title.text = "Level " + str(in_idx)
+	#
+	#truck.size = level.truck_size
+	#
+	#for c in figures_node.get_children():
+		#c.queue_free()
+	#
+	#for p_idx in palletes.size():
+		#_spawn_figure(p_idx, level.max_difficulty)
 	
 func _spawn_figure(in_idx: int, in_max_difficulty: Difficulty):
 	for c in palletes[in_idx].get_children():
@@ -76,6 +77,7 @@ func _spawn_figure(in_idx: int, in_max_difficulty: Difficulty):
 
 
 func _get_random_figure(in_max_difficulty: Difficulty) -> CargoFigure:
+	
 	var dif = randi_range(0, in_max_difficulty)
 	var idx = randi_range(0, figures.get(dif).size()-1)
 	return figures.get(dif)[idx].instantiate()

@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://ceh3811hdo2uq"]
+[gd_scene load_steps=25 format=3 uid="uid://ceh3811hdo2uq"]
 
 [ext_resource type="Script" uid="uid://dgbtn6fmblkto" path="res://scripts/gameplay.gd" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dir52arv03oai" path="res://scenes/truck.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnkuan5icj57n" path="res://scenes/prefabs/figures/armchair.tscn" id="4_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dshuf0b8fvxkx" path="res://scenes/prefabs/figures/bed.tscn" id="5_muem4"]
@@ -24,24 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://4htihwlt1cij" path="res://sprites/Backround.png" id="22_jscy8"]
 [ext_resource type="Texture2D" uid="uid://cioiknl8jn1cw" path="res://sprites/Name.png" id="23_pm3ni"]
 
-[sub_resource type="Resource" id="Resource_sugp2"]
-script = ExtResource("2_0wfyh")
-max_difficulty = 0
-truck_size = Vector2i(5, 5)
-metadata/_custom_type_script = "uid://c65vyajnksfg8"
-
-[sub_resource type="Resource" id="Resource_yc10j"]
-script = ExtResource("2_0wfyh")
-max_difficulty = 1
-truck_size = Vector2i(5, 10)
-metadata/_custom_type_script = "uid://c65vyajnksfg8"
-
-[sub_resource type="Resource" id="Resource_jscy8"]
-script = ExtResource("2_0wfyh")
-max_difficulty = 2
-truck_size = Vector2i(15, 8)
-metadata/_custom_type_script = "uid://c65vyajnksfg8"
-
 [sub_resource type="LabelSettings" id="LabelSettings_yc10j"]
 font_size = 24
 
@@ -61,7 +42,6 @@ texture = ExtResource("23_pm3ni")
 
 [node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "panel_game_end", "points_label")]
 script = ExtResource("1_o5qli")
-levels = Array[ExtResource("2_0wfyh")]([SubResource("Resource_sugp2"), SubResource("Resource_yc10j"), SubResource("Resource_jscy8")])
 truck_prefab = ExtResource("3_sugp2")
 level_title = NodePath("Label level")
 truck = NodePath("Truck")
