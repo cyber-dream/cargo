@@ -26,18 +26,21 @@
 
 [sub_resource type="Resource" id="Resource_sugp2"]
 script = ExtResource("2_0wfyh")
+min_difficulty = 0
 max_difficulty = 0
 truck_size = Vector2i(5, 5)
 metadata/_custom_type_script = "uid://c65vyajnksfg8"
 
 [sub_resource type="Resource" id="Resource_yc10j"]
 script = ExtResource("2_0wfyh")
+min_difficulty = 0
 max_difficulty = 1
 truck_size = Vector2i(5, 10)
 metadata/_custom_type_script = "uid://c65vyajnksfg8"
 
 [sub_resource type="Resource" id="Resource_jscy8"]
 script = ExtResource("2_0wfyh")
+min_difficulty = 0
 max_difficulty = 2
 truck_size = Vector2i(15, 8)
 metadata/_custom_type_script = "uid://c65vyajnksfg8"
