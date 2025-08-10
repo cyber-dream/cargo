@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CargoLevel" load_steps=9 format=3 uid="uid://b13v3h0xer723"]
+
+[ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="1_jvxk6"]
+[ext_resource type="PackedScene" uid="uid://cnkuan5icj57n" path="res://scenes/prefabs/figures/armchair.tscn" id="1_mrvay"]
+[ext_resource type="PackedScene" uid="uid://dshuf0b8fvxkx" path="res://scenes/prefabs/figures/bed.tscn" id="2_iy30y"]
+[ext_resource type="PackedScene" uid="uid://dd1w3e8tr7vf3" path="res://scenes/prefabs/figures/bedside_table.tscn" id="3_ni7fa"]
+[ext_resource type="PackedScene" uid="uid://dru5o6himvg30" path="res://scenes/prefabs/figures/box.tscn" id="4_hh3bj"]
+[ext_resource type="PackedScene" uid="uid://dwwuvb5o8048j" path="res://scenes/prefabs/figures/clock.tscn" id="5_vajyk"]
+[ext_resource type="PackedScene" uid="uid://dbn2v4gw3vfu2" path="res://scenes/prefabs/figures/curtain.tscn" id="6_pd15s"]
+[ext_resource type="PackedScene" uid="uid://cuvl18cl1rkqd" path="res://scenes/prefabs/figures/jiraf.tscn" id="7_d0686"]
+
+[resource]
+script = ExtResource("1_jvxk6")
+truck_size = Vector2i(5, 5)
+bans = Array[PackedScene]([ExtResource("1_mrvay"), ExtResource("2_iy30y"), ExtResource("3_ni7fa"), ExtResource("4_hh3bj"), ExtResource("5_vajyk"), ExtResource("6_pd15s"), ExtResource("7_d0686")])
+min_difficulty = 0
+max_difficulty = 1
+metadata/_custom_type_script = "uid://c65vyajnksfg8"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CargoLevel" load_steps=4 format=3 uid="uid://bony7hh7phfvv"]
+
+[ext_resource type="Script" uid="uid://dn8mfciwnjauk" path="res://scripts/level_difficulty.gd" id="1_f50iy"]
+[ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="1_ufihh"]
+
+[sub_resource type="Resource" id="Resource_8nfli"]
+script = ExtResource("1_f50iy")
+metadata/_custom_type_script = "uid://dn8mfciwnjauk"
+
+[resource]
+script = ExtResource("1_ufihh")
+difficulty = SubResource("Resource_8nfli")
+truck_size = Vector2i(5, 5)
+bans = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://c65vyajnksfg8"

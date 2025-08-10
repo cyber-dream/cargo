@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CargoLevel" load_steps=2 format=3 uid="uid://bt5yqm417xl1p"]
+
+[ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="1_cm13m"]
+
+[resource]
+script = ExtResource("1_cm13m")
+min_difficulty = 1
+max_difficulty = 2
+truck_size = Vector2i(5, 5)
+metadata/_custom_type_script = "uid://c65vyajnksfg8"
