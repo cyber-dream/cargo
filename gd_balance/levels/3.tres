@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oc8au")
-truck_size = Vector2i(5, 5)
+truck_size = Vector2i(12, 6)
 bans = Array[PackedScene]([])
 min_difficulty = 2
 max_difficulty = 2

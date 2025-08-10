@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://byexl5n15mrkb" path="res://scenes/prefabs/figures/phone.tscn" id="16_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://4htihwlt1cij" path="res://sprites/Backround.png" id="22_jscy8"]
 [ext_resource type="Texture2D" uid="uid://cioiknl8jn1cw" path="res://sprites/Name.png" id="23_pm3ni"]
-[ext_resource type="Resource" uid="uid://ckyps85txf7do" path="res://gd_balance/CargoLevelsSequence.tres" id="23_y6deb"]
+[ext_resource type="Resource" path="res://gd_balance/CargoLevelsSequence.tres" id="23_y6deb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yc10j"]
 font_size = 24
@@ -41,7 +41,7 @@ texture = ExtResource("22_jscy8")
 position = Vector2(585, 315)
 texture = ExtResource("23_pm3ni")
 
-[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "figures_node", "panel_game_end", "points_label")]
+[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "panel_game_end", "points_label")]
 script = ExtResource("1_o5qli")
 levels_path = "res://gd_balance/levels/"
 truck_prefab = ExtResource("3_sugp2")
@@ -53,6 +53,7 @@ figures = {
 1: [],
 2: []
 }
+palletes = [NodePath("Pallete1"), NodePath("Pallete2"), NodePath("Pallete3")]
 figures_node = NodePath("Figures")
 panel_game_end = NodePath("../Panel")
 points_label = NodePath("Label points")
