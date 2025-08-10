@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="CargoLevel" load_steps=2 format=3 uid="uid://bbp4lyktbdi18"]
+[gd_resource type="Resource" script_class="CargoLevel" load_steps=2 format=3 uid="uid://c4lxiixeb4dd7"]
 
 [ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="1_oc8au"]
 
 [resource]
 script = ExtResource("1_oc8au")
-truck_size = Vector2i(5, 5)
-bans = Array[PackedScene]([])
+truck_size = Vector2i(10, 5)
 min_difficulty = 2
 max_difficulty = 2
 metadata/_custom_type_script = "uid://c65vyajnksfg8"

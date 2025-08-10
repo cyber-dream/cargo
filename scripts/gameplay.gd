@@ -88,7 +88,7 @@ func _on_game_end():
         
 
 func _on_figure_dropped(in_pallete_idx:int, in_points: int):
-    #_spawn_figure(in_pallete_idx, levels[_cur_level].max_difficulty)
+    _spawn_figure(in_pallete_idx)
     _points += in_points
 
 
@@ -142,9 +142,14 @@ func _get_random_figure() -> CargoFigure:
     # Берём рандомный индекс фигуры из словаря по сложности
     var idx = randi_range(0, figures.get(dif).size()-1)
     
+    var rand_fig=figures.get(dif)[idx]
+    for ban_fig in levelsequence.sequence[_cur_level].ban_list:
+        if rand_fig ==ban_fig: 
+            rand_fig=_get_random_figure()
+            break
     # Возвращаем фигуру по двум рандомам
     return figures.get(dif)[idx].instantiate()
-
+    
 
 func _on_next_level_button_pressed() -> void:
     _on_game_end()

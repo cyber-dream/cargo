@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="CargoLevel" load_steps=4 format=3 uid="uid://bony7hh7phfvv"]
+[gd_resource type="Resource" script_class="CargoLevel" load_steps=8 format=3 uid="uid://cqwfsnhljfyxp"]
 
-[ext_resource type="Script" uid="uid://dn8mfciwnjauk" path="res://scripts/level_difficulty.gd" id="1_f50iy"]
+[ext_resource type="PackedScene" uid="uid://cnkuan5icj57n" path="res://scenes/prefabs/figures/armchair.tscn" id="1_b86oq"]
 [ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="1_ufihh"]
-
-[sub_resource type="Resource" id="Resource_8nfli"]
-script = ExtResource("1_f50iy")
-metadata/_custom_type_script = "uid://dn8mfciwnjauk"
+[ext_resource type="PackedScene" uid="uid://dshuf0b8fvxkx" path="res://scenes/prefabs/figures/bed.tscn" id="2_xy3l1"]
+[ext_resource type="PackedScene" uid="uid://dd1w3e8tr7vf3" path="res://scenes/prefabs/figures/bedside_table.tscn" id="3_5paw4"]
+[ext_resource type="PackedScene" uid="uid://dru5o6himvg30" path="res://scenes/prefabs/figures/box.tscn" id="4_s3w1u"]
+[ext_resource type="PackedScene" uid="uid://dwwuvb5o8048j" path="res://scenes/prefabs/figures/clock.tscn" id="5_lidno"]
+[ext_resource type="PackedScene" uid="uid://dbn2v4gw3vfu2" path="res://scenes/prefabs/figures/curtain.tscn" id="6_pu6l4"]
 
 [resource]
 script = ExtResource("1_ufihh")
-difficulty = SubResource("Resource_8nfli")
 truck_size = Vector2i(5, 5)
-bans = Array[PackedScene]([])
+ban_list = Array[PackedScene]([ExtResource("1_b86oq"), ExtResource("2_xy3l1"), ExtResource("3_5paw4"), ExtResource("4_s3w1u"), ExtResource("5_lidno"), ExtResource("6_pu6l4")])
+min_difficulty = 0
+max_difficulty = 0
 metadata/_custom_type_script = "uid://c65vyajnksfg8"

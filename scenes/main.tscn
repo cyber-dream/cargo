@@ -41,7 +41,7 @@ texture = ExtResource("22_jscy8")
 position = Vector2(585, 315)
 texture = ExtResource("23_pm3ni")
 
-[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "figures_node", "panel_game_end", "points_label")]
+[node name="Gameplay" type="Node2D" parent="." node_paths=PackedStringArray("level_title", "truck", "palletes", "figures_node", "panel_game_end", "points_label")]
 script = ExtResource("1_o5qli")
 levels_path = "res://gd_balance/levels/"
 truck_prefab = ExtResource("3_sugp2")
@@ -53,6 +53,7 @@ figures = {
 1: [],
 2: []
 }
+palletes = [NodePath("Pallete1"), NodePath("Pallete2"), NodePath("Pallete3")]
 figures_node = NodePath("Figures")
 panel_game_end = NodePath("../Panel")
 points_label = NodePath("Label points")
