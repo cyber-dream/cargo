@@ -28,52 +28,31 @@ var _points: int = 0:
 		points_label.text = "Points: " + str(value)
 		
 
-func _load_resources_recursive(in_path: String) -> Array[CargoLevel]:
-	var result: Array[CargoLevel] = []
-	var dir = DirAccess.open(in_path)
-
-	if dir == null:
-		push_error("Не удалось открыть папку: " + in_path)
-		return result
-
-	dir.list_dir_begin()
-	while true:
-		var file_name = dir.get_next()
-		if file_name == "":
-			break
-		if file_name.begins_with("."):
-			continue
-
-		var full_path = in_path + "/" + file_name
-
-		if dir.current_is_dir():
-			result += _load_resources_recursive(in_path)
-		else:
-			if ResourceLoader.exists(full_path):
-				var res = ResourceLoader.load(full_path)
-				
-				if !res:
-					print("Не удалось загрузить: ", full_path)
-				elif res.get_script() != CargoLevel:
-					continue
-				else:
-					result.append(res as CargoLevel)
-
-	dir.list_dir_end()
-	return result
-
 func _enter_tree() -> void:
-	var found_levels = _load_resources_recursive(levels_path)
+	_load_level(0)
+	CargoDnD.figure_dropped.connect(_on_figure_dropped)
+	CargoDnD.game_end.connect(_on_game_end)
+
+func _create_figures_cache():
+	figures.clear()
+	
+	for d in Difficulty.values():
+		figures.set(d, [])
 	
 	for f in figure_prefabs:
+		var is_continue: bool
+		for b_fig in levelsequence.sequence[_cur_level].ban_list:
+			if b_fig.resource_path == f.resource_path:
+				is_continue = true
+				break
+		
+		if is_continue:
+			continue
+		
 		var new_f = f.instantiate() as CargoFigure
 		var arr = figures.get(new_f.difficulty)
 		arr.push_back(f)
 		new_f.queue_free()
-	
-	_load_level(0) 
-	CargoDnD.figure_dropped.connect(_on_figure_dropped)
-	CargoDnD.game_end.connect(_on_game_end)
 	
 func _on_game_end():
 	pass
@@ -93,6 +72,8 @@ func _load_level(in_idx: int):
 	var level=levelsequence.sequence[in_idx]
 	level_title.text = "Level " + str(in_idx)
 	truck.size = level.truck_size
+	
+	_create_figures_cache()
 	
 	for c in figures_node.get_children():
 		c.queue_free()
@@ -127,22 +108,6 @@ func _spawn_figure(in_idx: int):
 
 
 func _get_random_figure() -> CargoFigure:
-    # Берём мин и макс сложности из текущего уровня
-    var mindiff = levelsequence.sequence[_cur_level].min_difficulty
-    var maxdiff = levelsequence.sequence[_cur_level].max_difficulty
-    var dif = randi_range(mindiff, maxdiff)
-    
-    # Берём рандомный индекс фигуры из словаря по сложности
-    var idx = randi_range(0, figures.get(dif).size()-1)
-    
-    var rand_fig=figures.get(dif)[idx]
-    for ban_fig in levelsequence.sequence[_cur_level].ban_list:
-        if rand_fig ==ban_fig: 
-            rand_fig=_get_random_figure()
-            break
-    # Возвращаем фигуру по двум рандомам
-    return figures.get(dif)[idx].instantiate()
-    
 	# Берём мин и макс сложности из текущего уровня
 	var mindiff = levelsequence.sequence[_cur_level].min_difficulty
 	var maxdiff = levelsequence.sequence[_cur_level].max_difficulty
@@ -151,9 +116,14 @@ func _get_random_figure() -> CargoFigure:
 	# Берём рандомный индекс фигуры из словаря по сложности
 	var idx = randi_range(0, figures.get(dif).size()-1)
 	
+	var rand_fig=figures.get(dif)[idx]
+	for ban_fig in levelsequence.sequence[_cur_level].ban_list:
+		if rand_fig ==ban_fig: 
+			rand_fig=_get_random_figure()
+			break
 	# Возвращаем фигуру по двум рандомам
 	return figures.get(dif)[idx].instantiate()
-
+	
 
 func _on_next_level_button_pressed() -> void:
 	_on_game_end()
