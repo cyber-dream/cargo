@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CargoLevelsSequence" load_steps=7 format=3 uid="uid://ckyps85txf7do"]
+
+[ext_resource type="Script" uid="uid://hneasp4lbkse" path="res://scripts/lvl_sequence.gd" id="1_pfm0i"]
+[ext_resource type="Script" uid="uid://c65vyajnksfg8" path="res://scripts/level.gd" id="2_ro75l"]
+[ext_resource type="Resource" path="res://gd_balance/levels/1.tres" id="3_ututg"]
+[ext_resource type="Resource" path="res://gd_balance/levels/2.tres" id="4_lsumq"]
+[ext_resource type="Resource" path="res://gd_balance/levels/3.tres" id="5_gcq0f"]
+[ext_resource type="Resource" path="res://gd_balance/levels/4.tres" id="6_y8kje"]
+
+[resource]
+script = ExtResource("1_pfm0i")
+sequence = Array[ExtResource("2_ro75l")]([ExtResource("3_ututg"), ExtResource("4_lsumq"), ExtResource("5_gcq0f"), ExtResource("6_y8kje")])
+metadata/_custom_type_script = "uid://hneasp4lbkse"

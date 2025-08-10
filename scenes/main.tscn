@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ceh3811hdo2uq"]
+[gd_scene load_steps=26 format=3 uid="uid://ceh3811hdo2uq"]
 
 [ext_resource type="Script" uid="uid://dgbtn6fmblkto" path="res://scripts/gameplay.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dir52arv03oai" path="res://scenes/truck.tscn" id="3_sugp2"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://byexl5n15mrkb" path="res://scenes/prefabs/figures/phone.tscn" id="16_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://4htihwlt1cij" path="res://sprites/Backround.png" id="22_jscy8"]
 [ext_resource type="Texture2D" uid="uid://cioiknl8jn1cw" path="res://sprites/Name.png" id="23_pm3ni"]
+[ext_resource type="Resource" uid="uid://ckyps85txf7do" path="res://gd_balance/CargoLevelsSequence.tres" id="23_y6deb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yc10j"]
 font_size = 24
@@ -55,6 +56,7 @@ figures = {
 figures_node = NodePath("Figures")
 panel_game_end = NodePath("../Panel")
 points_label = NodePath("Label points")
+levelsequence = ExtResource("23_y6deb")
 
 [node name="Label level" type="Label" parent="Gameplay"]
 anchors_preset = 1
